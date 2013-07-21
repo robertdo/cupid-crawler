@@ -1,0 +1,33 @@
+{% extends "template_files/main.html" %}
+
+{% block title %}Register a new user{% endblock %}
+
+{% block maincontent %}
+<div class="container">
+  <form action="/add-okcupid" method="POST" class="form-horizontal">
+    <div class="control-group">
+      <label class="control-label" for="okcupid_username">
+        Okcupid username
+      </label>
+      <div class="controls">
+        <input type="text" name="okcupid_username" placeholder="username"/>  
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label" for="okcupid_password">
+        Okcupid password
+      </label>
+      <div class="controls">
+        <input type="password" name="okcupid_password" placeholder="password"/>  
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="controls">
+        <button type="submit" class="btn">Authenticate</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

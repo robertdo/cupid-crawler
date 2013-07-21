@@ -1,0 +1,261 @@
+
+<div class="row-fluid">
+  <!-- Left sidebar -->
+  <div class="span2">
+    <div class="sidebar">
+      <!-- Search -->
+      <div class="section-container">
+        <form class="form-search">
+          <div class="input-append">
+            <input type="text" class="input-small search-query" ng-model="searchText">
+            <button type="submit" class="btn">Search</button>
+          </div>
+        </form>
+      </div>
+      <div class="section-container">
+        <h4>Age</h4>
+        <slider floor="{{minAgeStatic}}" ceiling="{{maxAgeStatic}}" step="1" ng-model-low="ageRange.minAge" ng-model-high="ageRange.maxAge"></slider>
+      </div>
+      <!-- Location -->
+      <div class="section-container">
+        <h4>Location</h4>
+        <div class="select-all"><span ng-click="selectAll(selectedLocations, true)" ng-class="(allSelected(selectedLocations, true))? 'selected' : ''">all</span> | <span ng-click="selectAll(selectedLocations, false)" ng-class="(allSelected(selectedLocations, false))? 'selected' : ''">none</span></div>
+        <label ng-repeat="location in locations | orderBy:['-count','name']">
+          <div>
+            <input
+              type="checkbox"
+              value="location.name"
+              ng-checked="location.checked"
+              ng-model="selectedLocations[location.name]"
+              class="hide"
+            >
+            <span class="sidebar-items" ng-class="(selectedLocations[location.name])? 'selected' : ''">{{location.name}} <span class="sidebar-count" ng-class="(selectedLocations[location.name])? 'selected' : ''">{{location.count}}</span></span>
+          </div>
+        </label>
+      </div>
+      <!-- Ethnicity -->
+      <div class="section-container">
+        <h4>Ethnicity</h4>
+        <div class="select-all"><span ng-click="selectAll(selectedEthnicities, true)" ng-class="(allSelected(selectedEthnicities, true))? 'selected' : ''">all</span> | <span ng-click="selectAll(selectedEthnicities, false)" ng-class="(allSelected(selectedEthnicities, false))? 'selected' : ''">none</span></div>
+        <label ng-repeat="ethnicity in ethnicities | orderBy:['-count','ethnicity']">
+          <input
+            type="checkbox"
+            value="ethnicity.ethnicity"
+            ng-checked="ethnicity.checked"
+            ng-model="selectedEthnicities[ethnicity.ethnicity]"
+            class="hide"
+          >
+          <span class="sidebar-items" ng-class="(selectedEthnicities[ethnicity.ethnicity])? 'selected' : ''">{{ethnicity.ethnicity}} <span class="sidebar-count" ng-class="(selectedEthnicities[ethnicity.ethnicity])? 'selected' : ''">{{ethnicity.count}}</span></span>
+        </label>
+      </div>
+      <!-- Body Type -->
+      <div class="section-container">
+        <h4>Body Type</h4>
+        <div class="select-all"><span ng-click="selectAll(selectedBodyTypes, true)" ng-class="(allSelected(selectedBodyTypes, true))? 'selected' : ''">all</span> | <span ng-click="selectAll(selectedBodyTypes, false)" ng-class="(allSelected(selectedBodyTypes, false))? 'selected' : ''">none</span></div>
+        <label ng-repeat="type in bodyTypes | orderBy:['-count','type']">
+          <input
+            type="checkbox"
+            value="type.type"
+            ng-checked="type.checked"
+            ng-model="selectedBodyTypes[type.type]"
+            class="hide"
+          >
+          <span class="sidebar-items" ng-class="(selectedBodyTypes[type.type])? 'selected' : ''">{{type.type}} <span class="sidebar-count" ng-class="(selectedBodyTypes[type.type])? 'selected' : ''">{{type.count}}</span></span>
+        </label>
+      </div>
+    </div>
+  </div>
+  <!-- /Left sidebar -->
+  <!-- Profiles -->
+  <div class="span10 results-container">
+    <div class="results-meta">
+      <div class="profile-count">{{filtered.length}} out of {{profilesCount}} results</div>
+    </div>
+    <div class="loader" ng-class="(profilesStatus == 'SUCCESS')? 'hide' : ''">
+      <img src="images/loader.gif">
+    </div>
+    <div ng-class="(profilesCount != 0)? 'hide' : ''">
+      There are no profiles to browse
+    </div>
+    <div class="row-fluid profiles-container">
+      <div class="span2" ng-repeat="profile in (filtered = (profiles | filter:searchText | locationFilter:selectedLocations | ageFilter:ageRange | ethnicityFilter:selectedEthnicities | bodyTypeFilter:selectedBodyTypes))">
+        <div class="profile-box" ng-controller="ProfileModalCtrl">
+          <div class="profile-overlay">
+            <a href="http://www.okcupid.com/profile/{{profile.username}}" target="_blank" rel="nofollow"><div class="okc-username">{{profile.username}}</div></a>
+          </div>
+          <img src="{{profile.img}}" class="okc-img" ng-click="open()">
+          <div class="profile-footer">
+            <div class="okc-location" ng-bind-html-unsafe="profile.location | highlight:searchText"></div>
+            <div class="okc-meta">{{profile.age}} / {{profile.orientation}}</div>
+            <a ng-click="open()">More info</a>
+          </div>
+          <div>
+            <div modal="shouldBeOpen" close="close()" options="opts">
+              <div class="modal-header">
+                  <button type="button" class="close" ng-click="close()">x</button>
+                  <h3><a href="http://www.okcupid.com/profile/{{profile.username}}" target="_blank" rel="nofollow">{{profile.username}}</a></h3>
+              </div>
+              <div class="modal-body">
+                <div class="modal-essay-content">
+                  <!-- Profile pics -->
+                  <div ng-if="profile.img_more != 'None'">
+                    <div ng-controller="ProfilePicsCtrl">
+                      <ul class="profile-pics-list">
+                        <li ng-repeat="img in profile.img_more">
+                          <img src="{{img.url}}" ng-click="setCurrImg(img)" ng-class="(img.selected)? 'selected' : ''">
+                        </li>
+                      </ul>
+                      <img src="{{hoverImg.url}}">
+                      <p class="caption">{{hoverImg.caption}}</p>
+                    </div>
+                  </div>
+                  <!-- /Profile pics -->
+
+                  <div class="more-info">
+                    <div ng-if="profile.essay_text_0 != 'None'">
+                      <h5>My self-summary</h5>
+                      <div class="essay" ng-bind-html-unsafe="profile.essay_text_0 | highlight:searchText"></div>
+                    </div>
+                    <div ng-if="profile.essay_text_1 != 'None'">
+                      <h5>What I'm doing with my life</h5>
+                      <div class="essay" ng-bind-html-unsafe="profile.essay_text_1 | highlight:searchText"></div>
+                    </div>
+                    <div ng-if="profile.essay_text_2 != 'None'">
+                      <h5>I'm really good at</h5>
+                      <div class="essay" ng-bind-html-unsafe="profile.essay_text_2 | highlight:searchText"></div>
+                    </div>
+                    <div ng-if="profile.essay_text_3 != 'None'">
+                      <h5>The first things people usually notice about me</h5>
+                      <div class="essay" ng-bind-html-unsafe="profile.essay_text_3 | highlight:searchText"></div>
+                    </div>
+                    <div ng-if="profile.essay_text_4 != 'None'">
+                      <h5>Favorite books, movies, shows, music, and food</h5>
+                      <div class="essay" ng-bind-html-unsafe="profile.essay_text_4 | highlight:searchText"></div>
+                    </div>
+                    <div ng-if="profile.essay_text_5 != 'None'">
+                      <h5>The six things I could never do without</h5>
+                      <div class="essay" ng-bind-html-unsafe="profile.essay_text_5 | highlight:searchText"></div>
+                    </div>
+                    <div ng-if="profile.essay_text_6 != 'None'">
+                      <h5>I spend a lot of time thinking about</h5>
+                      <div class="essay" ng-bind-html-unsafe="profile.essay_text_6 | highlight:searchText"></div>
+                    </div>
+                    <div ng-if="profile.essay_text_7 != 'None'">
+                      <h5>On a typical Friday night, I am</h5>
+                      <div class="essay" ng-bind-html-unsafe="profile.essay_text_7 | highlight:searchText"></div>
+                    </div>
+                    <div ng-if="profile.essay_text_8 != 'None'">
+                      <h5>The most private thing I'm willing to admit</h5>
+                      <div class="essay" ng-bind-html-unsafe="profile.essay_text_8 | highlight:searchText"></div>
+                    </div>
+                    <div ng-if="profile.what_i_want != 'None'">
+                      <h5>I'm looking for</h5>
+                      <div class="essay" ng-bind-html-unsafe="profile.what_i_want | highlight:searchText"></div>
+                    </div>
+                    <div ng-if="profile.essay_text_9 != 'None'">
+                      <h5>You should message me if</h5>
+                      <div class="essay" ng-bind-html-unsafe="profile.essay_text_9 | highlight:searchText"></div>
+                    </div>
+                  </div> <!-- /more-info -->
+                </div>
+
+                <!-- Details -->
+                <div class="modal-details">
+                  <h4>Her Details</h4>
+                  <dl class="dl-horizontal">
+                    <dt>Match</dt>
+                    <dd>{{profile.match}}%</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Friend</dt>
+                    <dd>{{profile.friend}}%</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Enemy</dt>
+                    <dd>{{profile.enemy}}%</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Age</dt>
+                    <dd>{{profile.age}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Location</dt>
+                    <dd>{{profile.location}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Orientation</dt>
+                    <dd>{{profile.orientation}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Status</dt>
+                    <dd>{{profile.status}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Ethnicity</dt>
+                    <dd>{{profile.ethnicity}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Height</dt>
+                    <dd>{{profile.height}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Body Type</dt>
+                    <dd>{{profile.body_type}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Diet</dt>
+                    <dd>{{profile.diet}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Smokes</dt>
+                    <dd>{{profile.smoking}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Drinks</dt>
+                    <dd>{{profile.drinking}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Drugs</dt>
+                    <dd>{{profile.drugs}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Religion</dt>
+                    <dd>{{profile.religion}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Sign</dt>
+                    <dd>{{profile.sign}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Education</dt>
+                    <dd>{{profile.education}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Job</dt>
+                    <dd>{{profile.job}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Income</dt>
+                    <dd>{{profile.income}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Offspring</dt>
+                    <dd>{{profile.children}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Pets</dt>
+                    <dd>{{profile.pets}}</dd>
+                  </dl>
+                  <dl class="dl-horizontal">
+                    <dt>Speaks</dt>
+                    <dd>{{profile.languages}}</dd>
+                  </dl>
+                </div>
+              </div> <!-- /modal-body -->
+            </div>
+          </div>
+        </div>
+      </div> <!-- /span2 -->
+    </div> <!-- /row-fluid -->
+  </div> <!-- /span10 --><!-- /Profiles -->
+</div>

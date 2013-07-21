@@ -1,0 +1,111 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,700italic,900,900italic,500italic,500,400italic,300italic,300,100italic,100' rel='stylesheet' type='text/css'>
+
+        <!-- build:css({.tmp,app}) styles/main.css -->
+        <link rel="stylesheet" href="bower_components/angular-slider/angular-slider.css"/>
+        <link rel="stylesheet" href="styles/main2.css">
+        <link rel="stylesheet" href="bower_components/angular-ui/build/angular-ui.css"/>
+        <!-- endbuild -->
+  </head>
+  <body ng-app="cupidCrawlerApp">
+    <!--[if lt IE 7]>
+      <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+      <script src="bower_components/es5-shim/es5-shim.js"></script>
+      <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div class="navbar navbar-static-top navbar-inverse" ng-controller="NavCtrl">
+      <div class="navbar-inner container-fluid">
+        <a class="brand" href="#">Cupid Browser</a>
+        <ul class="nav">
+          <li class="active"><a href="#">Browse</a></li>
+          <li><a ng-click="openCrawlModal()">Creep</a></li>
+        </ul>
+      </div>
+
+      <!-- Crawl modal -->
+      <div modal="crawlModalShouldBeOpen" close="closeCrawlModal()" options="crawlModalOpts">
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="closeCrawlModal()">x</button>
+            <h3>Start Crawling</h3>
+        </div>
+        <div class="modal-body">
+          <button class="btn" ng-click="startCrawl()">
+            <span ng-if="!isCrawling">Start Crawl</span>
+            <span ng-if="isCrawling">Crawl in progress</span>
+          </button>
+        </div> <!-- /modal-body -->
+      </div> <!-- /Crawl modal -->
+    </div>
+    
+    <div class="container-fluid" ng-view=""></div>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src='//www.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+
+    <!-- <script src="bower_components/angular/angular.js"></script> -->
+    <script src="bower_components/angular-unstable/angular.js"></script>
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <!-- endbuild -->
+
+        <!-- build:js scripts/plugins.js -->
+        <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/bootstrap-sass/js/bootstrap-affix.js"></script>
+        <script src="bower_components/bootstrap-sass/js/bootstrap-alert.js"></script>
+        <script src="bower_components/bootstrap-sass/js/bootstrap-dropdown.js"></script>
+        <script src="bower_components/bootstrap-sass/js/bootstrap-tooltip.js"></script>
+        <script src="bower_components/bootstrap-sass/js/bootstrap-modal.js"></script>
+        <script src="bower_components/bootstrap-sass/js/bootstrap-transition.js"></script>
+        <script src="bower_components/bootstrap-sass/js/bootstrap-button.js"></script>
+        <script src="bower_components/bootstrap-sass/js/bootstrap-popover.js"></script>
+        <script src="bower_components/bootstrap-sass/js/bootstrap-typeahead.js"></script>
+        <script src="bower_components/bootstrap-sass/js/bootstrap-carousel.js"></script>
+        <script src="bower_components/bootstrap-sass/js/bootstrap-scrollspy.js"></script>
+        <script src="bower_components/bootstrap-sass/js/bootstrap-collapse.js"></script>
+        <script src="bower_components/bootstrap-sass/js/bootstrap-tab.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js scripts/modules.js -->
+        <script src="bower_components/angular-slider/angular-slider.js"></script>
+
+        <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-ui/build/angular-ui.js"></script>
+        
+        <script src="bower_components/angular-ui-utils/modules/highlight/highlight.js"></script>
+        <script src="scripts/filters/locationFilter.js"></script>
+        <script src="scripts/filters/ageFilter.js"></script>
+        <script src="scripts/controllers/ProfileModal.js"></script>
+        <script src="scripts/filters/ethnicityFilter.js"></script>
+        <script src="scripts/filters/bodyTypeFilter.js"></script>
+        <script src="scripts/controllers/ProfilePics.js"></script>
+        <script src="scripts/controllers/Nav.js"></script>
+        <!-- endbuild -->
+</body>
+</html>

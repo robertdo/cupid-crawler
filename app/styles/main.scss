@@ -1,0 +1,150 @@
+@import "bootstrap-sass/lib/bootstrap";
+
+/* Put your CSS here */
+html, body {
+  margin: 20px;
+}
+
+body {
+    /*background: #fafafa;*/
+    background: #2855a2;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+.hero-unit {
+    margin: 50px auto 0 auto;
+    width: 300px;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 30px;
+    background-color: #eee;
+    border-radius: 6px;
+    padding: 60px;
+}
+
+.hero-unit h1 {
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.profile-overlay {
+    position: absolute;
+    width: 92%;
+    padding: 4%;
+    background: rgba(0,0,20,.35);
+    border-radius: 3px 3px 0 0;
+    font-weight: 700;
+}
+
+.profile-overlay a {
+    color: #fff;
+    text-shadow: 0 0 8px #000;
+}
+
+.profile-box {
+    background: #F6F6F6;
+    margin-bottom: 7.5%;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.33);
+    position: relative;
+}
+
+.profile-box img {
+    border-radius: 3px 3px 0 0;
+}
+
+.profile-footer {
+    border-radius: 0 0 3px 3px;
+    padding: 4%;
+}
+
+.section-title {
+    /*border-top: 1px solid #143778;*/
+    background: #2c4686;
+    margin-left: -9.5%;
+    width: 101%;
+    padding: 1% 9%;
+}
+
+.sidebar {
+    /*border: 1px solid #eee;*/
+    padding: 6%;
+    background: #142d69;
+    height: 846px;
+    color: #96b7ff;
+}
+
+.sidebar h4 {
+    text-transform: uppercase;
+    font-size: 15px;
+    margin-top: 1.5em;
+    color: #dce6fe;
+}
+
+.sidebar-items {
+    font-size: 13px;
+}
+
+.sidebar-count {
+    background: #2c4686;
+    color: #d5e6fe;
+    padding: 0 5px;
+    min-width: 13px;
+    font-weight: bold;
+    font-size: 11px;
+    border-radius: 2px;
+    float: right;
+    text-align: center;
+    line-height: 22px;
+}
+
+.hide {
+    display: none;
+}
+
+.okc-username {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.okc-img {
+    width: 100%;
+}
+
+.ui-match {
+    background: yellow;
+}
+
+.modal {
+    bottom: 0;
+}
+
+.modal.fade.in {
+    top: 0;
+}
+
+.modal-body {
+    max-height: 700px;
+}
+
+.bubble.selection {
+    display: none;
+}
+
+slider {
+    margin: 25px 0;
+}
+
+slider span.bubble {
+    font-size: 13px;
+}
+
+slider span.bar, slider span.pointer {
+    margin-top: 5%;
+}
+
+.row-fluid [class*="span"]:nth-child(6n+1) {
+   margin-left: 0;
+}

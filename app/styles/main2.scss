@@ -1,0 +1,275 @@
+@import "bootstrap-sass/lib/bootstrap";
+
+/* Put your CSS here */
+html, body {
+
+}
+
+body {
+    /*background: #fafafa;*/
+    background: #F0F0F0;
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+.container-fluid {
+    padding-left: 0px;
+}
+
+/* Sidebar */
+
+.sidebar {
+    /*border: 1px solid #eee;*/
+    background: #3B3B3B;
+    color: rgba(255, 255, 255, 0.9);
+    border-right: 1px solid rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: inset -5px 0px 8px rgba(0, 0, 0, 0.4);
+}
+
+.sidebar h4 {
+    text-transform: uppercase;
+    font-size: 15px;
+    margin-top: 0;
+    color: rgba(255, 255, 255, 0.5);
+    display: inline-block;
+}
+
+.select-all {
+    float: right;
+    color: rgba(255,255,255,.5);
+    font-size: .9em;
+}
+
+.select-all .selected {
+    color: rgba(255,255,255,.8);
+}
+
+.sidebar-items {
+    font-size: 13px;
+    color: rgba(255,255,255,.5);
+}
+
+.sidebar-items.selected {
+    color: rgba(255,255,255,.8);
+}
+
+.sidebar-count {
+    color: #fff;
+    padding: 0 5px;
+    min-width: 13px;
+    font-size: 11px;
+    border-radius: 2px;
+    float: right;
+    text-align: center;
+    line-height: 22px;
+    color: rgba(255,255,255,.5);
+}
+
+.sidebar-count.selected {
+    background: #565656;
+    font-weight: bold;
+    color: rgba(255,255,255,.8);
+}
+
+.section-container {
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.025);
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+    padding: 6%;
+}
+
+.section-container form {
+    margin: 0px;
+}
+
+
+/* Profiles */
+
+.loader {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.row-fluid [class*="span"]:nth-child(6n+1) {
+   margin-left: 0;
+}
+
+.profiles-container {
+    clear: both;
+}
+
+.results-container {
+    padding-top: 20px;
+}
+
+.results-meta {
+
+}
+
+.profile-count {
+    color: #444;
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.profile-overlay {
+    position: absolute;
+    width: 92%;
+    padding: 4%;
+    background: rgba(0,0,20,.35);
+    font-weight: 700;
+}
+
+.profile-overlay a {
+    color: #fff;
+    text-shadow: 0 0 8px #000;
+}
+
+.profile-box {
+    background: #F6F6F6;
+    margin-bottom: 7.5%;
+    position: relative;
+}
+
+.profile-box img {
+    
+}
+
+.profile-footer {
+    font-size: 13px;
+    padding: 4%;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-top: none;
+    box-shadow: 0 1px 0px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+
+.profile-footer a {
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+.okc-username {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.okc-img {
+    width: 100%;
+    cursor: pointer;
+}
+
+.ui-match {
+    background: yellow;
+}
+
+
+/* Modal */
+
+.modal {
+    bottom: 0;
+    width: 800px;
+    margin-left: -400px;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+}
+
+.modal.fade.in {
+    top: 0;
+}
+
+.modal-header {
+    background: #f5f5f5;
+}
+
+.modal-body {
+    max-height: 100%;
+    position: absolute;
+    top: 49px;
+    bottom: 0px;
+    width: 770px;
+}
+
+.modal-essay-content {
+    width: 500px;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.modal-details {
+    width: 255px;
+    display: inline-block;
+    position: fixed;
+    padding-left: 10px;
+    border-left: 1px solid #ccc;
+}
+
+.dl-horizontal {
+    font-size: .9em;
+    margin-bottom: 0px;
+}
+
+.modal-details dl dt {
+    text-align: left;
+    width: 85px;
+}
+
+.modal-details dl dd {
+    margin-left: 85px;
+}
+
+/* Profile pics */
+
+.profile-pics-list {
+    list-style-type: none;
+    margin: 0;
+}
+
+.profile-pics-list li {
+    display: inline-block;
+    margin: 0 5px 5px 0;
+}
+
+.profile-pics-list li img {
+    height: 75px;
+}
+
+.caption {
+    margin: 10px 0 15px 0;
+    font-size: .9em;
+    color: #555;
+    font-style: italic;
+}
+
+img.selected {
+    border: 2px solid green;
+}
+
+
+/* Slider */
+
+slider {
+    margin: 25px 0 10px 0;
+}
+
+slider span.bubble {
+    font-size: 13px;
+}
+
+slider span.bar, slider span.pointer {
+    margin-top: 5%;
+}
+
+slider span.bar.selection {
+    background: none;
+}
+
+.bubble.selection {
+    display: none;
+}

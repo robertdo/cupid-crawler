@@ -1,0 +1,67 @@
+application: cupid-crawler
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+libraries:
+- name: jinja2
+  version: "latest"
+
+- name: webapp2
+  version: latest
+
+- name: pycrypto
+  version: "2.6"
+
+- name: lxml
+  version: "2.3"
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /bower_components
+  static_dir: dist/bower_components
+
+- url: /scripts
+  static_dir: dist/scripts
+
+- url: /styles
+  static_dir: dist/styles
+
+- url: /views
+  static_dir: dist/views
+
+- url: /images
+  static_dir: dist/images
+
+- url: .*
+  script: main.application
+
+- url: /signup
+  script: main.application
+  secure: always
+
+- url: /login
+  script: main.application
+  secure: always
+
+- url: /forgot
+  script: main.application
+  secure: always
+
+inbound_services:
+- warmup
+
+env_variables:
+  KEY: 'mysecretpassword'
+
+builtins:
+  - appstats: on
+
+pagespeed:
+  enabled_rewriters:
+  - ImageAddDimensions
+  - CollapseWhitespace
