@@ -12,7 +12,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <link href="http://fonts.googleapis.com/css?family=Roboto:400,700,700italic,900,900italic,500italic,500,400italic,300italic,300,100italic,100" rel="stylesheet" type="text/css">
 
-        <link rel="stylesheet" href="styles/bcded2ed.main.css">
+        <link rel="stylesheet" href="styles/c5f95518.main.css">
   </head>
   <body ng-app="cupidCrawlerApp">
     <!--[if lt IE 7]>
@@ -38,12 +38,15 @@
       <div modal="crawlModalShouldBeOpen" close="closeCrawlModal()" options="crawlModalOpts">
         <div class="modal-header">
             <button type="button" class="close" ng-click="closeCrawlModal()">x</button>
-            <h3>Start Crawling</h3>
+            <h3>Creeping Engine</h3>
         </div>
         <div class="modal-body">
-          <button class="btn" ng-click="startCrawl()">
-            <span ng-if="!isCrawling">Start Crawl</span>
-            <span ng-if="isCrawling">Crawl in progress</span>
+          <div>
+            You've visited {{userInfo.profiles_visited_today}} profiles out of your {{userInfo.daily_quota}} profile daily limit today.
+          </div>
+          <button class="btn" ng-click="startCrawl()" ng-disabled="userInfo.is_crawling">
+            <span ng-if="!userInfo.is_crawling">Start Creepin'</span>
+            <span ng-if="userInfo.is_crawling">Creepin' in progress</span>
           </button>
         </div> <!-- /modal-body -->
       </div> <!-- /Crawl modal -->
@@ -62,10 +65,10 @@
     <!-- <script src="bower_components/angular/angular.js"></script> -->
     <script src="bower_components/angular-unstable/angular.js"></script>
 
-    <script src="scripts/561c577e.scripts.js"></script>
+    <script src="scripts/9957f6ac.scripts.js"></script>
 
         <script src="scripts/bd6ce9e3.plugins.js"></script>
 
-        <script src="scripts/c1d77aef.modules.js"></script>
+        <script src="scripts/7521418c.modules.js"></script>
 </body>
 </html>

@@ -31,6 +31,7 @@ routes = [
     Route('/api/is-crawling', handler='frontend.IsCrawling', name='is-crawling'),
     Route('/api/profiles', handler='frontend.GetProfileList', name='profile-list'),
     Route('/api/profile-queue', handler='frontend.ToBeVisited', name='to-be-visited'),
+    Route('/api/user-info', handler='frontend.UserInfo', name='user-info'),
 
     # Pages
     Route('/add-okcupid', handler='frontend.AddOkcupid', name='add-okcupid'),
@@ -59,6 +60,10 @@ config = {
         'filters': {
             'timesince': filters.timesince,
             'datetimeformat': filters.datetimeformat,
+        },
+        'environment_args': {
+            'variable_start_string': '((',
+            'variable_end_string': '))',
         },
     },
     'webapp2_extras.auth': {

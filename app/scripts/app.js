@@ -3,7 +3,7 @@
 angular.module('cupidCrawlerApp', ['uiSlider', 'ui.bootstrap', 'ui.highlight'])
   .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider
-      .when('/', {
+      .when('/home', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
@@ -12,4 +12,5 @@ angular.module('cupidCrawlerApp', ['uiSlider', 'ui.bootstrap', 'ui.highlight'])
       });
 
     $locationProvider.html5Mode(true);
+
   }]);

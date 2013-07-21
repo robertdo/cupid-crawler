@@ -50,13 +50,19 @@
   <!-- Profiles -->
   <div class="span10 results-container">
     <div class="results-meta">
-      <div class="profile-count">{{filtered.length}} out of {{profilesCount}} results</div>
+      <div class="profile-count" ng-if="profilesCount > 0">
+        {{filtered.length}} out of {{profilesCount}} results
+      </div>
     </div>
     <div class="loader" ng-class="(profilesStatus == 'SUCCESS')? 'hide' : ''">
       <img src="images/loader.gif">
     </div>
-    <div ng-class="(profilesCount != 0)? 'hide' : ''">
-      There are no profiles to browse
+    <div class="no-profiles" ng-class="(profilesCount != 0)? 'hide' : ''">
+      <h1>Sup player. Let's creep on some girls.</h1>
+      <div class="content">
+        <p>Click on "Creep" in the menu bar to start visiting profiles</p>
+        <p>Once you've visited some profiles, you can come back here to browse, search, and filter them.</p>
+      </div>
     </div>
     <div class="row-fluid profiles-container">
       <div class="span2" ng-repeat="profile in (filtered = (profiles | filter:searchText | locationFilter:selectedLocations | ageFilter:ageRange | ethnicityFilter:selectedEthnicities | bodyTypeFilter:selectedBodyTypes))">
@@ -74,7 +80,10 @@
             <div modal="shouldBeOpen" close="close()" options="opts">
               <div class="modal-header">
                   <button type="button" class="close" ng-click="close()">x</button>
-                  <h3><a href="http://www.okcupid.com/profile/{{profile.username}}" target="_blank" rel="nofollow">{{profile.username}}</a></h3>
+                  <h3>
+                    <a href="http://www.okcupid.com/profile/{{profile.username}}" target="_blank" rel="nofollow">{{profile.username}}</a>
+                    <span class="meta-info">{{profile.age}} / {{profile.gender}} / {{profile.orientation}} / {{profile.status}} / {{profile.location}}</span>
+                  </h3>
               </div>
               <div class="modal-body">
                 <div class="modal-essay-content">
@@ -142,35 +151,21 @@
 
                 <!-- Details -->
                 <div class="modal-details">
-                  <h4>Her Details</h4>
-                  <dl class="dl-horizontal">
-                    <dt>Match</dt>
-                    <dd>{{profile.match}}%</dd>
-                  </dl>
-                  <dl class="dl-horizontal">
-                    <dt>Friend</dt>
-                    <dd>{{profile.friend}}%</dd>
-                  </dl>
-                  <dl class="dl-horizontal">
-                    <dt>Enemy</dt>
-                    <dd>{{profile.enemy}}%</dd>
-                  </dl>
-                  <dl class="dl-horizontal">
-                    <dt>Age</dt>
-                    <dd>{{profile.age}}</dd>
-                  </dl>
-                  <dl class="dl-horizontal">
-                    <dt>Location</dt>
-                    <dd>{{profile.location}}</dd>
-                  </dl>
-                  <dl class="dl-horizontal">
-                    <dt>Orientation</dt>
-                    <dd>{{profile.orientation}}</dd>
-                  </dl>
-                  <dl class="dl-horizontal">
-                    <dt>Status</dt>
-                    <dd>{{profile.status}}</dd>
-                  </dl>
+                  <div class="visit-profile">
+                    <a href="http://www.okcupid.com/profile/{{profile.username}}" target="_blank" rel="nofollow">Visit profile</a>
+                  </div>
+                  <div class="match-stats">
+                    <ul class="headers">
+                      <li>Match</li>
+                      <li>Friend</li>
+                      <li>Enemy</li>
+                    </ul>
+                    <ul class="stats">
+                      <li>{{profile.match}}%</li>
+                      <li>{{profile.friend}}%</li>
+                      <li>{{profile.enemy}}%</li>
+                    </ul>
+                  </div>
                   <dl class="dl-horizontal">
                     <dt>Ethnicity</dt>
                     <dd>{{profile.ethnicity}}</dd>

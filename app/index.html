@@ -42,12 +42,15 @@
       <div modal="crawlModalShouldBeOpen" close="closeCrawlModal()" options="crawlModalOpts">
         <div class="modal-header">
             <button type="button" class="close" ng-click="closeCrawlModal()">x</button>
-            <h3>Start Crawling</h3>
+            <h3>Creeping Engine</h3>
         </div>
         <div class="modal-body">
-          <button class="btn" ng-click="startCrawl()">
-            <span ng-if="!isCrawling">Start Crawl</span>
-            <span ng-if="isCrawling">Crawl in progress</span>
+          <div>
+            You've visited {{userInfo.profiles_visited_today}} profiles out of your {{userInfo.daily_quota}} profile daily limit today.
+          </div>
+          <button class="btn" ng-click="startCrawl()" ng-disabled="userInfo.is_crawling">
+            <span ng-if="!userInfo.is_crawling">Start Creepin'</span>
+            <span ng-if="userInfo.is_crawling">Creepin' in progress</span>
           </button>
         </div> <!-- /modal-body -->
       </div> <!-- /Crawl modal -->

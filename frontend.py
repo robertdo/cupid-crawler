@@ -4,6 +4,7 @@ import browser
 import json
 import logging
 import os
+import random
 import webapp2
 
 from Crypto.Cipher import AES
@@ -16,6 +17,8 @@ from google.appengine.api import urlfetch
 from handlers import BaseHandler
 
 from models import User, Profile, ToBeVisited, ProfileList
+
+from time import sleep
 
 from webapp2_extras.auth import InvalidAuthIdError
 from webapp2_extras.auth import InvalidPasswordError
@@ -84,6 +87,19 @@ class ToBeVisited(BaseHandler):
     self.response.headers['Content-Type'] = 'application/json'
     self.response.write(json.dumps(to_be_visited))
 
+# User info
+class UserInfo(BaseHandler):
+  def get(self):
+    user = self.user
+    message = {
+      'is_crawling': user.is_crawling,
+      'daily_quota': user.daily_quota,
+      'profiles_visited_today': user.profiles_visited_today,
+      'profiles_visited_counter': user.profiles_visited_counter,
+    }
+    self.response.headers['Content-Type'] = 'application/json'
+    self.response.write(json.dumps(message))
+
 # Is crawling
 class IsCrawling(BaseHandler):
   def get(self):
@@ -144,28 +160,24 @@ class CrawlWorker(BaseHandler):
     # If it doesn't exist, get the seed profile list
     if not to_be_visited:
       browser.get_first_profiles(user, br)
+      
+
+    profiles_visited_counter = 0
+    while profiles_visited_counter < num:
       to_be_visited = ProfileList.query(
         ProfileList.visited == False,
-        ancestor = user.key).order(ProfileList.date_added).fetch(num)
-
-    while profiles_visited < num:
-      if len(to_be_visited) < num:
-        profiles_visited += len(to_be_visited)
-        for item in to_be_visited:
-          browser.visit_page(user, br, item.profile)
-          item.visited = True
-          item.put()
-        to_be_visited = ProfileList.query(
-          ProfileList.visited == False,
-          ancestor = user.key).order(ProfileList.date_added).fetch(num-profiles_visited)
-      else:
-        profiles_visited = num
-        for item in to_be_visited:
-          browser.visit_page(user, br, item.profile)
-          item.visited = True
-          item.put()
+        ancestor = user.key).order(ProfileList.date_added).fetch(num-profiles_visited_counter)
+      for item in to_be_visited:
+        browser.visit_page(user, br, item.profile)
+        item.visited = True
+        item.put()
+        secs = random.randint(0, 2500) / 1000.0
+        sleep(secs)
+      profiles_visited_counter = user.profiles_visited_counter
           
     user.is_crawling = False
+    user.profiles_visited_today += user.profiles_visited_counter
+    user.profiles_visited_counter = 0
     user.put()
 
 ### Handlers ####
@@ -179,10 +191,7 @@ class TryPw(BaseHandler):
 class Home(BaseHandler):
   @user_required
   def get(self):
-    params = {
-      'profiles': self.user.crawled
-    }
-    self.render_template('dist/index.html', params)
+    self.render_template('dist/index.html', {})
 
 class Index(BaseHandler):
   def get(self):

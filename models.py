@@ -28,6 +28,10 @@ class User(webapp2_extras.appengine.auth.models.User):
   okcupid_username = ndb.StringProperty()
   okcupid_pw = ndb.StringProperty()
   is_crawling = ndb.BooleanProperty(default=False)
+  profiles_visited_counter = ndb.IntegerProperty(default=0)
+  daily_quota = ndb.IntegerProperty(default=100)
+  profiles_visited_today = ndb.IntegerProperty(default=0)
+  last_quota_reset = ndb.DateTimeProperty()
 
 class Profile(ndb.Model):
   date_added = ndb.DateTimeProperty(auto_now_add=True)

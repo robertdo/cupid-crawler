@@ -42,30 +42,25 @@ def create_logged_in_browser(username, password):
 def get_first_profiles(user, br):
   res = br.open('http://www.okcupid.com/home')
   soup = BeautifulSoup(res.read().decode('utf-8'))
-  logging.info(soup.prettify())
+  #logging.info(soup.prettify())
   left_bar_matches = []
   for item in soup.find_all('a', {'class': 'profile_image'}):
     left_bar_matches.append(item['href'])
   add_unique_profiles(user, left_bar_matches)
 
 def visit_page(user, br, url):
-  logging.info('Enter visit_page: ' + url)
+  #logging.info('Enter visit_page: ' + url)
   try:
     res = br.open(ROOT_URL + url)
     logging.info('Mechanize opened')
     soup = BeautifulSoup(res.read().decode('utf-8'))
-    logging.info('Soup read: ' + url)
+    #logging.info('Soup read: ' + url)
 
     # Get and write user data
     get_user_data(user, url, soup, br)
-    logging.info('got user data')
+    #logging.info('got user data')
 
     # Add new users to queue
-    # similar_users = soup.find_all('a', {'class': 'user_image'})
-    # logging.info('got similar_users')
-    # left_bar_matches = soup.find_all('a', {'class': 'profile_image'})
-    # logging.info('got left_bar_matches')
-
     users_to_be_added = []
 
     for item in soup.find_all('a', {'class': 'profile_image'}):
@@ -73,7 +68,7 @@ def visit_page(user, br, url):
     for item in soup.find_all('a', {'class': 'user_image'}):
       users_to_be_added.append(item['href'])
     
-    logging.info(users_to_be_added)
+    #logging.info(users_to_be_added)
     # for item in left_bar_matches:
     #   users_to_be_added.append(item['href'])
 
@@ -91,7 +86,7 @@ def visit_page(user, br, url):
 
 # Retrieves and puts the new user data
 def get_user_data(user, url, soup, br):
-  logging.info('Inside get user data function')
+  #logging.info('Inside get user data function')
   userId = url
 
   user_data = Profile.get_by_id(userId)
@@ -100,15 +95,15 @@ def get_user_data(user, url, soup, br):
 
   # If this is a new profile
   if not user_data:
-    logging.info('new profile')
+    #logging.info('new profile')
     # Get the last online time
     if soup.find('span', {'class': 'fancydate'}) != None:
       last_online = soup.find('span', {'class': 'fancydate'}).text
     else:
       last_online = 'Online now!'
-    logging.info('got the date')
+    #logging.info('got the date')
     # logging.info(user.key)
-    logging.info(soup.prettify())
+    #logging.info(soup.prettify())
 
     # img = str(soup.find(id='thumb0_a').find('img')['src'])
     # logging.info(img)
@@ -218,10 +213,10 @@ def get_user_data(user, url, soup, br):
       what_i_want = unicode(soup.find(class_='what_i_want')),
       visitors = [user.key],
       visitor_count = 1)
-    logging.info('got the basic info')
+    #logging.info('got the basic info')
     # Get extra photos
     res = br.follow_link(url_regex=r'/photos')
-    logging.info('followed link')
+    #logging.info('followed link')
     soup = BeautifulSoup(res.read().decode('utf-8'))
 
     # Detect if it's an album page and build new soup
@@ -241,8 +236,7 @@ def get_user_data(user, url, soup, br):
     user_data.img_more = img_more
     user_data.img_more_captions = img_more_captions
 
-
-    logging.info('entity created')
+    #logging.info('entity created')
   
   # If this profile is new to this user
   elif user.key not in user_data.visitors:
@@ -295,7 +289,7 @@ def get_user_data(user, url, soup, br):
 
     # Get extra photos
     res = br.follow_link(url_regex=r'/photos')
-    logging.info('followed link')
+    #logging.info('followed link')
     soup = BeautifulSoup(res.read().decode('utf-8'))
 
     # Detect if it's an album page and build new soup
@@ -315,8 +309,9 @@ def get_user_data(user, url, soup, br):
     user_data.img_more = img_more
     user_data.img_more_captions = img_more_captions
 
-  user_data.put()
-  logging.info('user data put')
+  user.profiles_visited_counter += 1
+  ndb.put_multi([user, user_data])
+  #logging.info('user data put')
 
 # Strip profiles to just the username
 def get_stripped_profiles(profile_list):
@@ -328,16 +323,16 @@ def get_stripped_profiles(profile_list):
   return set(stripped_profiles)
 
 def add_unique_profiles(user, profile_list):
-  logging.info('entered add_unique_profiles')
+  # logging.info('entered add_unique_profiles')
 
-  logging.info(profile_list)
-  logging.info(user.key)
-  logging.info(user)
-  logging.info(user.key.id())
+  # logging.info(profile_list)
+  # logging.info(user.key)
+  # logging.info(user)
+  # logging.info(user.key.id())
 
   stripped_profiles = get_stripped_profiles(profile_list)
 
-  logging.info('got stripped_profiles')
+  # logging.info('got stripped_profiles')
 
   new_profiles_to_add = []
 

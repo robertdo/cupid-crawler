@@ -44,6 +44,10 @@ body {
     color: rgba(255,255,255,.8);
 }
 
+.select-all span {
+    cursor: pointer;
+}
+
 .sidebar-items {
     font-size: 13px;
     color: rgba(255,255,255,.5);
@@ -169,13 +173,21 @@ body {
     background: yellow;
 }
 
+.no-profiles {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.no-profiles .content {
+    margin-top: 2em;
+}
 
 /* Modal */
 
 .modal {
     bottom: 0;
-    width: 800px;
-    margin-left: -400px;
+    width: 858px;
+    margin-left: -429px;
     border-radius: 0px;
     -webkit-border-radius: 0px;
 }
@@ -193,11 +205,11 @@ body {
     position: absolute;
     top: 49px;
     bottom: 0px;
-    width: 770px;
+    width: 828px;
 }
 
 .modal-essay-content {
-    width: 500px;
+    width: 558px;
     display: inline-block;
     margin-right: 15px;
 }
@@ -223,6 +235,48 @@ body {
 .modal-details dl dd {
     margin-left: 85px;
 }
+
+.modal.crawl-dialog.fade.in {
+    top: 20%;
+    height: 350px;
+}
+
+.match-stats {
+    border-bottom: 1px solid #ccc;
+}
+
+.match-stats ul {
+    list-style-type: none;
+    margin-left: 0px;
+}
+
+.match-stats ul li {
+    display: inline-block;
+    width: 83px;
+}
+
+.match-stats .headers li {
+    font-weight: 700;
+}
+
+.meta-info {
+    font-size: .7em;
+    font-weight: 300;
+    float: right;
+    margin-right: 16px;
+    color: #555;
+}
+
+.visit-profile {
+    font-size: .7em;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.essay {
+    margin-bottom: 30px;
+}
+
 
 /* Profile pics */
 

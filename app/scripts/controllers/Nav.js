@@ -3,17 +3,15 @@
 angular.module('cupidCrawlerApp')
   .controller('NavCtrl', function ($scope, $http) {
     
+    $scope.userInfo;
+
     // Get crawl status
     $scope.getCrawlStatus = function() {
       $http({
-        url: "/api/is-crawling",
+        url: "/api/user-info",
         method: "GET"
       }).success(function(data, status, headers, config) {
-        if (data.status) {
-          $scope.isCrawling = true;
-        } else {
-          $scope.isCrawling = false;
-        }
+        $scope.userInfo = data;
       }).error(function(data, status, headers, config) {
         $scope.status = status;
       });
@@ -31,7 +29,8 @@ angular.module('cupidCrawlerApp')
 
     $scope.crawlModalOpts = {
       backdropFade: true,
-      dialogFade: true
+      dialogFade: true,
+      dialogClass: 'modal crawl-dialog',
     };
 
     $scope.startCrawl = function() {

@@ -6849,17 +6849,22 @@ body {
 }
 
 /* line 47, ../../app/styles/main2.scss */
+.select-all span {
+  cursor: pointer;
+}
+
+/* line 51, ../../app/styles/main2.scss */
 .sidebar-items {
   font-size: 13px;
   color: rgba(255, 255, 255, 0.5);
 }
 
-/* line 52, ../../app/styles/main2.scss */
+/* line 56, ../../app/styles/main2.scss */
 .sidebar-items.selected {
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* line 56, ../../app/styles/main2.scss */
+/* line 60, ../../app/styles/main2.scss */
 .sidebar-count {
   color: #fff;
   padding: 0 5px;
@@ -6872,14 +6877,14 @@ body {
   color: rgba(255, 255, 255, 0.5);
 }
 
-/* line 68, ../../app/styles/main2.scss */
+/* line 72, ../../app/styles/main2.scss */
 .sidebar-count.selected {
   background: #565656;
   font-weight: bold;
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* line 74, ../../app/styles/main2.scss */
+/* line 78, ../../app/styles/main2.scss */
 .section-container {
   box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.025);
   box-sizing: border-box;
@@ -6888,34 +6893,34 @@ body {
   padding: 6%;
 }
 
-/* line 82, ../../app/styles/main2.scss */
+/* line 86, ../../app/styles/main2.scss */
 .section-container form {
   margin: 0px;
 }
 
 /* Profiles */
-/* line 89, ../../app/styles/main2.scss */
+/* line 93, ../../app/styles/main2.scss */
 .loader {
   text-align: center;
   margin-top: 100px;
 }
 
-/* line 94, ../../app/styles/main2.scss */
+/* line 98, ../../app/styles/main2.scss */
 .row-fluid [class*="span"]:nth-child(6n+1) {
   margin-left: 0;
 }
 
-/* line 98, ../../app/styles/main2.scss */
+/* line 102, ../../app/styles/main2.scss */
 .profiles-container {
   clear: both;
 }
 
-/* line 102, ../../app/styles/main2.scss */
+/* line 106, ../../app/styles/main2.scss */
 .results-container {
   padding-top: 20px;
 }
 
-/* line 110, ../../app/styles/main2.scss */
+/* line 114, ../../app/styles/main2.scss */
 .profile-count {
   color: #444;
   font-size: 14px;
@@ -6923,7 +6928,7 @@ body {
   font-weight: bold;
 }
 
-/* line 117, ../../app/styles/main2.scss */
+/* line 121, ../../app/styles/main2.scss */
 .profile-overlay {
   position: absolute;
   width: 92%;
@@ -6932,20 +6937,20 @@ body {
   font-weight: 700;
 }
 
-/* line 125, ../../app/styles/main2.scss */
+/* line 129, ../../app/styles/main2.scss */
 .profile-overlay a {
   color: #fff;
   text-shadow: 0 0 8px #000;
 }
 
-/* line 130, ../../app/styles/main2.scss */
+/* line 134, ../../app/styles/main2.scss */
 .profile-box {
   background: #F6F6F6;
   margin-bottom: 7.5%;
   position: relative;
 }
 
-/* line 140, ../../app/styles/main2.scss */
+/* line 144, ../../app/styles/main2.scss */
 .profile-footer {
   font-size: 13px;
   padding: 4%;
@@ -6956,70 +6961,81 @@ body {
   box-sizing: border-box;
 }
 
-/* line 150, ../../app/styles/main2.scss */
+/* line 154, ../../app/styles/main2.scss */
 .profile-footer a {
   cursor: pointer;
 }
 
-/* line 154, ../../app/styles/main2.scss */
+/* line 158, ../../app/styles/main2.scss */
 .hide {
   display: none;
 }
 
-/* line 158, ../../app/styles/main2.scss */
+/* line 162, ../../app/styles/main2.scss */
 .okc-username {
   font-size: 16px;
   font-weight: bold;
 }
 
-/* line 163, ../../app/styles/main2.scss */
+/* line 167, ../../app/styles/main2.scss */
 .okc-img {
   width: 100%;
   cursor: pointer;
 }
 
-/* line 168, ../../app/styles/main2.scss */
+/* line 172, ../../app/styles/main2.scss */
 .ui-match {
   background: yellow;
 }
 
+/* line 176, ../../app/styles/main2.scss */
+.no-profiles {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* line 181, ../../app/styles/main2.scss */
+.no-profiles .content {
+  margin-top: 2em;
+}
+
 /* Modal */
-/* line 175, ../../app/styles/main2.scss */
+/* line 187, ../../app/styles/main2.scss */
 .modal {
   bottom: 0;
-  width: 800px;
-  margin-left: -400px;
+  width: 858px;
+  margin-left: -429px;
   border-radius: 0px;
   -webkit-border-radius: 0px;
 }
 
-/* line 183, ../../app/styles/main2.scss */
+/* line 195, ../../app/styles/main2.scss */
 .modal.fade.in {
   top: 0;
 }
 
-/* line 187, ../../app/styles/main2.scss */
+/* line 199, ../../app/styles/main2.scss */
 .modal-header {
   background: #f5f5f5;
 }
 
-/* line 191, ../../app/styles/main2.scss */
+/* line 203, ../../app/styles/main2.scss */
 .modal-body {
   max-height: 100%;
   position: absolute;
   top: 49px;
   bottom: 0px;
-  width: 770px;
+  width: 828px;
 }
 
-/* line 199, ../../app/styles/main2.scss */
+/* line 211, ../../app/styles/main2.scss */
 .modal-essay-content {
-  width: 500px;
+  width: 558px;
   display: inline-block;
   margin-right: 15px;
 }
 
-/* line 205, ../../app/styles/main2.scss */
+/* line 217, ../../app/styles/main2.scss */
 .modal-details {
   width: 255px;
   display: inline-block;
@@ -7028,42 +7044,91 @@ body {
   border-left: 1px solid #ccc;
 }
 
-/* line 213, ../../app/styles/main2.scss */
+/* line 225, ../../app/styles/main2.scss */
 .dl-horizontal {
   font-size: .9em;
   margin-bottom: 0px;
 }
 
-/* line 218, ../../app/styles/main2.scss */
+/* line 230, ../../app/styles/main2.scss */
 .modal-details dl dt {
   text-align: left;
   width: 85px;
 }
 
-/* line 223, ../../app/styles/main2.scss */
+/* line 235, ../../app/styles/main2.scss */
 .modal-details dl dd {
   margin-left: 85px;
 }
 
+/* line 239, ../../app/styles/main2.scss */
+.modal.crawl-dialog.fade.in {
+  top: 20%;
+  height: 350px;
+}
+
+/* line 244, ../../app/styles/main2.scss */
+.match-stats {
+  border-bottom: 1px solid #ccc;
+}
+
+/* line 248, ../../app/styles/main2.scss */
+.match-stats ul {
+  list-style-type: none;
+  margin-left: 0px;
+}
+
+/* line 253, ../../app/styles/main2.scss */
+.match-stats ul li {
+  display: inline-block;
+  width: 83px;
+}
+
+/* line 258, ../../app/styles/main2.scss */
+.match-stats .headers li {
+  font-weight: 700;
+}
+
+/* line 262, ../../app/styles/main2.scss */
+.meta-info {
+  font-size: .7em;
+  font-weight: 300;
+  float: right;
+  margin-right: 16px;
+  color: #555;
+}
+
+/* line 270, ../../app/styles/main2.scss */
+.visit-profile {
+  font-size: .7em;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+/* line 276, ../../app/styles/main2.scss */
+.essay {
+  margin-bottom: 30px;
+}
+
 /* Profile pics */
-/* line 229, ../../app/styles/main2.scss */
+/* line 283, ../../app/styles/main2.scss */
 .profile-pics-list {
   list-style-type: none;
   margin: 0;
 }
 
-/* line 234, ../../app/styles/main2.scss */
+/* line 288, ../../app/styles/main2.scss */
 .profile-pics-list li {
   display: inline-block;
   margin: 0 5px 5px 0;
 }
 
-/* line 239, ../../app/styles/main2.scss */
+/* line 293, ../../app/styles/main2.scss */
 .profile-pics-list li img {
   height: 75px;
 }
 
-/* line 243, ../../app/styles/main2.scss */
+/* line 297, ../../app/styles/main2.scss */
 .caption {
   margin: 10px 0 15px 0;
   font-size: .9em;
@@ -7071,33 +7136,33 @@ body {
   font-style: italic;
 }
 
-/* line 250, ../../app/styles/main2.scss */
+/* line 304, ../../app/styles/main2.scss */
 img.selected {
   border: 2px solid green;
 }
 
 /* Slider */
-/* line 257, ../../app/styles/main2.scss */
+/* line 311, ../../app/styles/main2.scss */
 slider {
   margin: 25px 0 10px 0;
 }
 
-/* line 261, ../../app/styles/main2.scss */
+/* line 315, ../../app/styles/main2.scss */
 slider span.bubble {
   font-size: 13px;
 }
 
-/* line 265, ../../app/styles/main2.scss */
+/* line 319, ../../app/styles/main2.scss */
 slider span.bar, slider span.pointer {
   margin-top: 5%;
 }
 
-/* line 269, ../../app/styles/main2.scss */
+/* line 323, ../../app/styles/main2.scss */
 slider span.bar.selection {
   background: none;
 }
 
-/* line 273, ../../app/styles/main2.scss */
+/* line 327, ../../app/styles/main2.scss */
 .bubble.selection {
   display: none;
 }
