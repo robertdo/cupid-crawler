@@ -1,0 +1,29 @@
+{% extends "template_files/main.html" %}
+
+{% block maincontent %}
+
+{% if failed %}
+
+    <strong>Login failed!</strong> Check your credentials and try again.
+
+{% endif %}
+
+<div class="container">
+  <form action="/login" method="POST">
+    <fieldset>
+      <legend>Login</legend>
+      <div class="control-group">
+        <input type="text" name="email" value="(( email ))" placeholder="email">
+      </div>
+      <div class="control-group">
+        <input type="password" name="password" placeholder="password">
+      </div>
+      <div class="control-group">
+        <button type="submit" class="btn">Login</button>
+      </div>
+    </fieldset>
+  </form>
+  <a href="/forgot">Forgot password</a>
+</div>
+
+{% endblock %}

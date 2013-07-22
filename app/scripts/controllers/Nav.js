@@ -43,5 +43,9 @@ angular.module('cupidCrawlerApp')
         $scope.status = status;
       });
     };
+
+    $scope.logout = function() {
+      window.location.href = window.location.href.split('/')[0] + '/logout';
+    };
     
   });

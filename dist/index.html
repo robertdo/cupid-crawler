@@ -12,7 +12,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <link href="http://fonts.googleapis.com/css?family=Roboto:400,700,700italic,900,900italic,500italic,500,400italic,300italic,300,100italic,100" rel="stylesheet" type="text/css">
 
-        <link rel="stylesheet" href="styles/c5f95518.main.css">
+        <link rel="stylesheet" href="styles/2f7cd395.main.css">
   </head>
   <body ng-app="cupidCrawlerApp">
     <!--[if lt IE 7]>
@@ -26,11 +26,14 @@
 
     <!-- Add your site or application content here -->
     <div class="navbar navbar-static-top navbar-inverse" ng-controller="NavCtrl">
-      <div class="navbar-inner container-fluid">
+      <div class="navbar-inner">
         <a class="brand" href="#">Cupid Browser</a>
         <ul class="nav">
           <li class="active"><a href="#">Browse</a></li>
           <li><a ng-click="openCrawlModal()">Creep</a></li>
+        </ul>
+        <ul class="nav pull-right">
+          <li><a ng-click="logout()">Logout</a></li>
         </ul>
       </div>
 
@@ -69,6 +72,6 @@
 
         <script src="scripts/bd6ce9e3.plugins.js"></script>
 
-        <script src="scripts/7521418c.modules.js"></script>
+        <script src="scripts/bb52430c.modules.js"></script>
 </body>
 </html>

@@ -180,6 +180,7 @@ body {
 
 .no-profiles .content {
     margin-top: 2em;
+    color: #555;
 }
 
 /* Modal */
@@ -326,4 +327,30 @@ slider span.bar.selection {
 
 .bubble.selection {
     display: none;
+}
+
+.hero-unit {
+    background-image: url('../images/dating.jpg');
+    height: 225px;
+    background-position: 0 -125px;
+    background-size: 100%;
+}
+
+.hero-unit h1, .hero-unit p {
+    color: #fff;
+    text-shadow: 0 0 8px #000;
+}
+
+.hero-unit p {
+    font-size: 24px;
+    font-weight: 300;
+    margin: 1em 0;
+}
+
+.container.align-center {
+    text-align: center;
+}
+
+.screenshot {
+    width: 400px;
 }

@@ -1,0 +1,44 @@
+{% extends "template_files/main.html" %}
+
+{% block maincontent %}
+<div class="hero-unit">
+  <div class="container align-center">
+    <h1>The Ultimate Tool<br/>For OkCupid</h1>
+    <p>Get more visitors and higher reply rates</p>
+    <p>
+      <a class="btn btn-primary btn-large" data-toggle="modal" data-target="#myModal">
+        Get Started
+      </a>
+    </p>
+    
+  </div>
+</div>
+<div class="container">
+  <img src="../images/screenshot.png" class="screenshot">
+
+</div>
+
+<div id="myModal" class="modal hide fade crawl-dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Modal header</h3>
+  </div>
+  <div class="modal-body">
+    <form action="/signup" method="POST">
+      <fieldset>
+        <legend>Sign up</legend>
+        <div class="control-group">
+          <input type="text" name="email" placeholder="email"/>
+        </div>
+        <div class="control-group">
+          <input type="password" name="password" placeholder="password"/>
+        </div>
+        <div class="control-group">
+          <button type="submit" class="btn">Sign up and start creepin'</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

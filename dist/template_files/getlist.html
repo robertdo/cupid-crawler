@@ -1,0 +1,16 @@
+{% extends "template_files/main.html" %}
+
+{% block maincontent %}
+<div class="container">
+  <div>
+    Logged in as <span style="background-color: OldLace">{{ user.email_address }}</span> | <a href="/logout">Logout</a>
+  </div>
+  <div>
+    {% for profile in profiles %}
+      {{profile.profile}} | {{profile.visited}}<br>
+    {% endfor %}
+  </div>
+
+</div>
+
+{% endblock %}

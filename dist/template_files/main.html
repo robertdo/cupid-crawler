@@ -1,0 +1,50 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link href="http://fonts.googleapis.com/css?family=Roboto:400,700,700italic,900,900italic,500italic,500,400italic,300italic,300,100italic,100" rel="stylesheet" type="text/css">
+
+        <link rel="stylesheet" href="../styles/2f7cd395.main.css">
+
+  </head>
+  <body>
+    <div class="navbar navbar-static-top navbar-inverse" ng-controller="NavCtrl">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/"><strong>Cupid</strong>Arrows</a>
+          <ul class="nav pull-right">
+            <li><a class="login-nav">Login</a></li>
+            <li><a data-toggle="modal" data-target="#myModal">Sign up</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    {% block maincontent %}
+
+
+
+    {% endblock %}
+    <script src="../bower_components/jquery/jquery.js"></script>
+    <script src="../scripts/bd6ce9e3.plugins.js"></script>
+
+    <script>
+      var popOverContent = '<form action="/login" method="POST"><div><input type="text" name="email" placeholder="email"><br><input type="password" name="password" placeholder="password"><br><button type="submit" class="btn">Login</button></form>';
+      var popOverOpts = {
+        'html': true,
+        'placement': 'bottom',
+        'title': 'Login',
+        'content': popOverContent,
+      }
+
+      $('.login-nav').popover(popOverOpts);
+    </script>
+  </body>
+</html>

@@ -6997,10 +6997,11 @@ body {
 /* line 181, ../../app/styles/main2.scss */
 .no-profiles .content {
   margin-top: 2em;
+  color: #555;
 }
 
 /* Modal */
-/* line 187, ../../app/styles/main2.scss */
+/* line 188, ../../app/styles/main2.scss */
 .modal {
   bottom: 0;
   width: 858px;
@@ -7009,17 +7010,17 @@ body {
   -webkit-border-radius: 0px;
 }
 
-/* line 195, ../../app/styles/main2.scss */
+/* line 196, ../../app/styles/main2.scss */
 .modal.fade.in {
   top: 0;
 }
 
-/* line 199, ../../app/styles/main2.scss */
+/* line 200, ../../app/styles/main2.scss */
 .modal-header {
   background: #f5f5f5;
 }
 
-/* line 203, ../../app/styles/main2.scss */
+/* line 204, ../../app/styles/main2.scss */
 .modal-body {
   max-height: 100%;
   position: absolute;
@@ -7028,14 +7029,14 @@ body {
   width: 828px;
 }
 
-/* line 211, ../../app/styles/main2.scss */
+/* line 212, ../../app/styles/main2.scss */
 .modal-essay-content {
   width: 558px;
   display: inline-block;
   margin-right: 15px;
 }
 
-/* line 217, ../../app/styles/main2.scss */
+/* line 218, ../../app/styles/main2.scss */
 .modal-details {
   width: 255px;
   display: inline-block;
@@ -7044,52 +7045,52 @@ body {
   border-left: 1px solid #ccc;
 }
 
-/* line 225, ../../app/styles/main2.scss */
+/* line 226, ../../app/styles/main2.scss */
 .dl-horizontal {
   font-size: .9em;
   margin-bottom: 0px;
 }
 
-/* line 230, ../../app/styles/main2.scss */
+/* line 231, ../../app/styles/main2.scss */
 .modal-details dl dt {
   text-align: left;
   width: 85px;
 }
 
-/* line 235, ../../app/styles/main2.scss */
+/* line 236, ../../app/styles/main2.scss */
 .modal-details dl dd {
   margin-left: 85px;
 }
 
-/* line 239, ../../app/styles/main2.scss */
+/* line 240, ../../app/styles/main2.scss */
 .modal.crawl-dialog.fade.in {
   top: 20%;
   height: 350px;
 }
 
-/* line 244, ../../app/styles/main2.scss */
+/* line 245, ../../app/styles/main2.scss */
 .match-stats {
   border-bottom: 1px solid #ccc;
 }
 
-/* line 248, ../../app/styles/main2.scss */
+/* line 249, ../../app/styles/main2.scss */
 .match-stats ul {
   list-style-type: none;
   margin-left: 0px;
 }
 
-/* line 253, ../../app/styles/main2.scss */
+/* line 254, ../../app/styles/main2.scss */
 .match-stats ul li {
   display: inline-block;
   width: 83px;
 }
 
-/* line 258, ../../app/styles/main2.scss */
+/* line 259, ../../app/styles/main2.scss */
 .match-stats .headers li {
   font-weight: 700;
 }
 
-/* line 262, ../../app/styles/main2.scss */
+/* line 263, ../../app/styles/main2.scss */
 .meta-info {
   font-size: .7em;
   font-weight: 300;
@@ -7098,37 +7099,37 @@ body {
   color: #555;
 }
 
-/* line 270, ../../app/styles/main2.scss */
+/* line 271, ../../app/styles/main2.scss */
 .visit-profile {
   font-size: .7em;
   font-weight: 400;
   margin-bottom: 5px;
 }
 
-/* line 276, ../../app/styles/main2.scss */
+/* line 277, ../../app/styles/main2.scss */
 .essay {
   margin-bottom: 30px;
 }
 
 /* Profile pics */
-/* line 283, ../../app/styles/main2.scss */
+/* line 284, ../../app/styles/main2.scss */
 .profile-pics-list {
   list-style-type: none;
   margin: 0;
 }
 
-/* line 288, ../../app/styles/main2.scss */
+/* line 289, ../../app/styles/main2.scss */
 .profile-pics-list li {
   display: inline-block;
   margin: 0 5px 5px 0;
 }
 
-/* line 293, ../../app/styles/main2.scss */
+/* line 294, ../../app/styles/main2.scss */
 .profile-pics-list li img {
   height: 75px;
 }
 
-/* line 297, ../../app/styles/main2.scss */
+/* line 298, ../../app/styles/main2.scss */
 .caption {
   margin: 10px 0 15px 0;
   font-size: .9em;
@@ -7136,33 +7137,64 @@ body {
   font-style: italic;
 }
 
-/* line 304, ../../app/styles/main2.scss */
+/* line 305, ../../app/styles/main2.scss */
 img.selected {
   border: 2px solid green;
 }
 
 /* Slider */
-/* line 311, ../../app/styles/main2.scss */
+/* line 312, ../../app/styles/main2.scss */
 slider {
   margin: 25px 0 10px 0;
 }
 
-/* line 315, ../../app/styles/main2.scss */
+/* line 316, ../../app/styles/main2.scss */
 slider span.bubble {
   font-size: 13px;
 }
 
-/* line 319, ../../app/styles/main2.scss */
+/* line 320, ../../app/styles/main2.scss */
 slider span.bar, slider span.pointer {
   margin-top: 5%;
 }
 
-/* line 323, ../../app/styles/main2.scss */
+/* line 324, ../../app/styles/main2.scss */
 slider span.bar.selection {
   background: none;
 }
 
-/* line 327, ../../app/styles/main2.scss */
+/* line 328, ../../app/styles/main2.scss */
 .bubble.selection {
   display: none;
+}
+
+/* line 332, ../../app/styles/main2.scss */
+.hero-unit {
+  background-image: url("../images/dating.jpg");
+  height: 225px;
+  background-position: 0 -125px;
+  background-size: 100%;
+}
+
+/* line 339, ../../app/styles/main2.scss */
+.hero-unit h1, .hero-unit p {
+  color: #fff;
+  text-shadow: 0 0 8px #000;
+}
+
+/* line 344, ../../app/styles/main2.scss */
+.hero-unit p {
+  font-size: 24px;
+  font-weight: 300;
+  margin: 1em 0;
+}
+
+/* line 350, ../../app/styles/main2.scss */
+.container.align-center {
+  text-align: center;
+}
+
+/* line 354, ../../app/styles/main2.scss */
+.screenshot {
+  width: 400px;
 }

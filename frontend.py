@@ -191,7 +191,7 @@ class TryPw(BaseHandler):
 class Home(BaseHandler):
   @user_required
   def get(self):
-    self.render_template('dist/index.html', {})
+    self.render_template('index.html', {})
 
 class Index(BaseHandler):
   def get(self):
@@ -255,7 +255,7 @@ class LoginHandler(BaseHandler):
 class LogoutHandler(BaseHandler):
   def get(self):
     self.auth.unset_session()
-    self.redirect(self.uri_for('home'))
+    self.redirect('/')
 
 class AddOkcupid(BaseHandler):
   @user_required
