@@ -32,6 +32,7 @@ routes = [
     Route('/api/profiles', handler='frontend.GetProfileList', name='profile-list'),
     Route('/api/profile-queue', handler='frontend.ToBeVisited', name='to-be-visited'),
     Route('/api/user-info', handler='frontend.UserInfo', name='user-info'),
+    Route('/api/add-okcupid', handler='frontend.AddOkcupidAPI', name='add-okcupid'),
 
     # Pages
     Route('/add-okcupid', handler='frontend.AddOkcupid', name='add-okcupid'),

@@ -100,6 +100,24 @@ class UserInfo(BaseHandler):
     self.response.headers['Content-Type'] = 'application/json'
     self.response.write(json.dumps(message))
 
+# Add OkCupid
+class AddOkcupidAPI(BaseHandler):
+  def post(self):
+    okcupid_username = self.request.get('okcupid_username')
+    okcupid_password = self.request.get('okcupid_password')
+    encoded_okcupid_pw = encode_pw(okcupid_password)
+
+    logging.info(okcupid_username)
+    logging.info(okcupid_password)
+    # if not User.query(User.okcupid_username == okcupid_username):
+    # user = self.user
+    # user.okcupid_username = okcupid_username
+    # user.okcupid_pw = encoded_okcupid_pw
+    # user.put()
+
+    # self.response.headers['Content-Type'] = 'application/json'
+    # self.response.write(json.dumps(message))
+
 # Is crawling
 class IsCrawling(BaseHandler):
   def get(self):
